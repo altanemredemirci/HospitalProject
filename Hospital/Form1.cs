@@ -5,6 +5,8 @@ namespace Hospital
         public Form1()
         {
             InitializeComponent();
+
+        
         }
     }
 }

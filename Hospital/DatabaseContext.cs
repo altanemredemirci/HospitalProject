@@ -16,6 +16,11 @@ namespace Hospital
 
         public DbSet<Il> Ils { get; set; }
         public DbSet<Ilce> Ilces { get; set; }
+        public DbSet<Hastahane> Hastahanes { get; set; }
+        public DbSet<Hasta> Hastas { get; set; }
+        public DbSet<Klinik> Kliniks { get; set; }
+        public DbSet<Doktor> Doktors { get; set; }
+        public DbSet<Randevu> Randevus { get; set; }
     }
 }
 /*    MICRO ORM - Object Relational Mapping

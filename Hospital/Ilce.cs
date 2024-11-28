@@ -15,6 +15,8 @@ namespace Hospital
         public int IlId { get; set; } 
         public Il Il { get; set; }
 
+        public List<Hastahane> Hastahanes { get; set; }
+
         //Her ilçe mutlaka 1 İl'e aittir. Bu IlId özelliği ilçe kaydederken varolan bir IlId değeri girilip girilmediğini kontrol edecek. Böylece var olmayan bir Şehre ilçe eklenmeyecek.
 
     }
