@@ -9,11 +9,7 @@ namespace Hospital
     internal class Randevu
     {
         public int Id { get; set; }
-
-        public int IlceId { get; set; }
-        public Ilce Ilce { get; set; }
-              
-
+          
         public int KlinikId { get; set; }
         public Klinik Klinik { get; set; }
 
@@ -23,11 +19,9 @@ namespace Hospital
         public int HastaId { get; set; }
         public Hasta Hasta{ get; set; }
 
-
         private string RandevuTarihi { get; set; }
 
         private string RandevuSaati { get; set; }
-
 
         public string _RandevuTarihi 
         {

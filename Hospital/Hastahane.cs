@@ -17,7 +17,6 @@ namespace Hospital
         public string Adres { get; set; }
 
         public List<Klinik> Kliniks { get; set; }
-        public List<Randevu> Randevus { get; set; }
 
     }
 }

@@ -139,13 +139,11 @@ namespace Hospital.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IlceId = table.Column<int>(type: "int", nullable: false),
                     KlinikId = table.Column<int>(type: "int", nullable: false),
                     DoktorId = table.Column<int>(type: "int", nullable: false),
                     HastaId = table.Column<int>(type: "int", nullable: false),
                     _RandevuTarihi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    _RandevuSaati = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HastahaneId = table.Column<int>(type: "int", nullable: true)
+                    _RandevuSaati = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -155,30 +153,19 @@ namespace Hospital.Migrations
                         column: x => x.DoktorId,
                         principalTable: "Doktors",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Randevus_Hastahanes_HastahaneId",
-                        column: x => x.HastahaneId,
-                        principalTable: "Hastahanes",
-                        principalColumn: "Id");
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Randevus_Hastas_HastaId",
                         column: x => x.HastaId,
                         principalTable: "Hastas",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Randevus_Ilces_IlceId",
-                        column: x => x.IlceId,
-                        principalTable: "Ilces",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Randevus_Kliniks_KlinikId",
                         column: x => x.KlinikId,
                         principalTable: "Kliniks",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -212,19 +199,9 @@ namespace Hospital.Migrations
                 column: "DoktorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Randevus_HastahaneId",
-                table: "Randevus",
-                column: "HastahaneId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Randevus_HastaId",
                 table: "Randevus",
                 column: "HastaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Randevus_IlceId",
-                table: "Randevus",
-                column: "IlceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Randevus_KlinikId",

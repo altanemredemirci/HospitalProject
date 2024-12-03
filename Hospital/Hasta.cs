@@ -19,6 +19,7 @@ namespace Hospital
         public string TC { get; set; }
         public string Telefon { get; set; }
         public string Kangrubu { get; set; }
+        public string Sifre { get; set; }
         public int Boy { get; set; }
         public int Kilo { get; set; }
         public int IlceId { get; set; }
