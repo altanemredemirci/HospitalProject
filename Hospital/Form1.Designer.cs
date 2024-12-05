@@ -35,6 +35,7 @@
             label2 = new Label();
             btn_giris = new Button();
             pictureBox1 = new PictureBox();
+            linkLabel1 = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             txt_tc.Name = "txt_tc";
             txt_tc.Size = new Size(250, 29);
             txt_tc.TabIndex = 1;
+            txt_tc.Text = "12345678908";
             // 
             // txt_sifre
             // 
@@ -65,6 +67,7 @@
             txt_sifre.PasswordChar = '*';
             txt_sifre.Size = new Size(250, 29);
             txt_sifre.TabIndex = 3;
+            txt_sifre.Text = "1";
             // 
             // label2
             // 
@@ -97,11 +100,24 @@
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            linkLabel1.Location = new Point(19, 191);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(66, 21);
+            linkLabel1.TabIndex = 6;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Kayıt Ol";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(608, 226);
+            Controls.Add(linkLabel1);
             Controls.Add(pictureBox1);
             Controls.Add(btn_giris);
             Controls.Add(txt_sifre);
@@ -124,5 +140,6 @@
         private Label label2;
         private Button btn_giris;
         private PictureBox pictureBox1;
+        private LinkLabel linkLabel1;
     }
 }

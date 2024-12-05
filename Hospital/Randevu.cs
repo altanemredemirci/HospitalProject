@@ -31,7 +31,7 @@ namespace Hospital
             }
             set
             {
-                RandevuTarihi = value.ToString().Split(' ')[0];
+                RandevuTarihi = value.ToString();
             } 
         }
 
@@ -43,7 +43,7 @@ namespace Hospital
             }
             set
             {
-                RandevuSaati = value.ToString().Split(' ')[1];
+                RandevuSaati = value.ToString();
             }
         }
 

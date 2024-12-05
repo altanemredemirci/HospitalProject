@@ -13,6 +13,8 @@ namespace Hospital
     public partial class RandevuForm : Form
     {
         DatabaseContext db;
+
+
         public RandevuForm()
         {
             db = new DatabaseContext();
@@ -102,7 +104,12 @@ namespace Hospital
             {
                 grp_randevuSaati.Visible = true;
 
-                var randevuSaatleri = db.Randevus.Where(i => i._RandevuTarihi == dt_tarih.Text).Select(i => i._RandevuSaati);
+                foreach (RadioButton rd in grp_randevuSaati.Controls)
+                {
+                    rd.Enabled = true;
+                }
+
+                var randevuSaatleri = db.Randevus.Where(i => i._RandevuTarihi == dt_tarih.Text && i.DoktorId == Convert.ToInt32(cmb_doktor.SelectedValue)).Select(i => i._RandevuSaati);
 
                 foreach (RadioButton rd in grp_randevuSaati.Controls)
                 {
@@ -123,7 +130,83 @@ namespace Hospital
 
         private void btn_randevuKayit_Click(object sender, EventArgs e)
         {
-            //
+            if (Form1.HastaId != 0)
+            {
+                Randevu r = new Randevu();
+                r.DoktorId = Convert.ToInt32(cmb_doktor.SelectedValue);
+                r.KlinikId = Convert.ToInt32(cmb_klinik.SelectedValue);
+                r.HastaId = Form1.HastaId;
+
+                foreach (RadioButton rd in grp_randevuSaati.Controls)
+                {
+                    if (rd.Checked)
+                    {
+                        r._RandevuSaati = rd.Text;
+                    }
+                }
+
+                r._RandevuTarihi = dt_tarih.Text;
+
+                db.Randevus.Add(r);
+                db.SaveChanges(); //Data manipüle oluyor ise mutlaka SaveChanges() metodu ile değişikliği veritabanına aktarmalıyız.
+
+                MessageBox.Show("Randevu Kaydınız Oluşturuldu.");
+                ClearAll();
+
+            }
+            else
+            {
+                MessageBox.Show("Lütfen Giriş Yapınız!!", "HATA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                this.Hide();
+                Form1 form = new Form1();
+                form.Show();
+            }
+        }
+
+        private void ClearAll()
+        {
+            cmb_doktor.SelectedIndex = 0;
+            cmb_hastane.SelectedIndex = 0;
+            cmb_ilce.SelectedIndex = 0;
+            cmb_klinik.SelectedIndex = 0;
+            cmb_sehir.SelectedIndex = 0;
+
+            dt_tarih.Text = DateTime.Now.ToString();
+            grp_randevuSaati.Visible = false;
+
+        }
+              
+
+        private void cmb_doktor_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (cmb_sehir.Text != "" && cmb_ilce.Text != "" && cmb_hastane.Text != "" && cmb_klinik.Text != "" && cmb_doktor.Text != "")
+            {
+                grp_randevuSaati.Visible = true;
+
+                foreach (RadioButton rd in grp_randevuSaati.Controls)
+                {
+                    rd.Enabled = true;
+                }
+                if (cmb_doktor.SelectedValue != null)
+                {
+                    var randevuSaatleri = db.Randevus.Where(i => i._RandevuTarihi == dt_tarih.Text && i.DoktorId == Convert.ToInt32(cmb_doktor.SelectedValue)).Select(i => i._RandevuSaati);
+
+                    foreach (RadioButton rd in grp_randevuSaati.Controls)
+                    {
+                        if (randevuSaatleri.Contains(rd.Text))
+                        {
+                            rd.Enabled = false;
+                        }
+                    }
+                }
+               
+
+            }
+            else
+            {
+                MessageBox.Show("Bütün alanları doldurunuz");
+            }
         }
     }
 }

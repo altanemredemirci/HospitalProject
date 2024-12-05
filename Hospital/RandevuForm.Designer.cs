@@ -154,6 +154,7 @@
             cmb_doktor.Name = "cmb_doktor";
             cmb_doktor.Size = new Size(227, 29);
             cmb_doktor.TabIndex = 8;
+            cmb_doktor.SelectedIndexChanged += cmb_doktor_SelectedIndexChanged_1;
             // 
             // pictureBox1
             // 
