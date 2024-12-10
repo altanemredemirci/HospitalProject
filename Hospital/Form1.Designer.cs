@@ -56,7 +56,7 @@
             txt_tc.Name = "txt_tc";
             txt_tc.Size = new Size(250, 29);
             txt_tc.TabIndex = 1;
-            txt_tc.Text = "12345678908";
+            txt_tc.Text = "12345678909";
             // 
             // txt_sifre
             // 

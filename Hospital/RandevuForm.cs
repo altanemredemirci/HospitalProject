@@ -67,6 +67,7 @@ namespace Hospital
             cmb_doktor.DataSource = doktorlar;
             cmb_doktor.DisplayMember = "Isim";
             cmb_doktor.ValueMember = "Id";
+            cmb_doktor.SelectedIndex = -1;
         }
 
         private void cmb_sehir_SelectedIndexChanged(object sender, EventArgs e)
@@ -176,37 +177,20 @@ namespace Hospital
             grp_randevuSaati.Visible = false;
 
         }
-              
 
-        private void cmb_doktor_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (cmb_sehir.Text != "" && cmb_ilce.Text != "" && cmb_hastane.Text != "" && cmb_klinik.Text != "" && cmb_doktor.Text != "")
-            {
-                grp_randevuSaati.Visible = true;
+            this.Hide();
+            HastaProfil form = new HastaProfil();
+            form.Show();
+        }
 
-                foreach (RadioButton rd in grp_randevuSaati.Controls)
-                {
-                    rd.Enabled = true;
-                }
-                if (cmb_doktor.SelectedValue != null)
-                {
-                    var randevuSaatleri = db.Randevus.Where(i => i._RandevuTarihi == dt_tarih.Text && i.DoktorId == Convert.ToInt32(cmb_doktor.SelectedValue)).Select(i => i._RandevuSaati);
-
-                    foreach (RadioButton rd in grp_randevuSaati.Controls)
-                    {
-                        if (randevuSaatleri.Contains(rd.Text))
-                        {
-                            rd.Enabled = false;
-                        }
-                    }
-                }
-               
-
-            }
-            else
-            {
-                MessageBox.Show("Bütün alanları doldurunuz");
-            }
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            Form1.HastaId = 0;
+            this.Hide();
+            Form1 form = new Form1();
+            form.Show();
         }
     }
 }

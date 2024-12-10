@@ -259,6 +259,7 @@
             Controls.Add(txt_isim);
             Controls.Add(label1);
             Name = "Register";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Register";
             ((System.ComponentModel.ISupportInitialize)nmr_boy).EndInit();
             ((System.ComponentModel.ISupportInitialize)nmr_kilo).EndInit();

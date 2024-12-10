@@ -52,6 +52,8 @@
             radioButton1 = new RadioButton();
             rd_saat = new RadioButton();
             btn_randevuKayit = new Button();
+            button1 = new Button();
+            btn_logout = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             grp_randevuSaati.SuspendLayout();
             SuspendLayout();
@@ -154,7 +156,6 @@
             cmb_doktor.Name = "cmb_doktor";
             cmb_doktor.Size = new Size(227, 29);
             cmb_doktor.TabIndex = 8;
-            cmb_doktor.SelectedIndexChanged += cmb_doktor_SelectedIndexChanged_1;
             // 
             // pictureBox1
             // 
@@ -307,11 +308,39 @@
             btn_randevuKayit.UseVisualStyleBackColor = false;
             btn_randevuKayit.Click += btn_randevuKayit_Click;
             // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.ActiveCaption;
+            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Location = new Point(647, 474);
+            button1.Name = "button1";
+            button1.Size = new Size(141, 32);
+            button1.TabIndex = 15;
+            button1.Text = "Profil";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // btn_logout
+            // 
+            btn_logout.BackColor = SystemColors.ActiveCaption;
+            btn_logout.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btn_logout.ForeColor = SystemColors.ButtonHighlight;
+            btn_logout.Location = new Point(425, 474);
+            btn_logout.Name = "btn_logout";
+            btn_logout.Size = new Size(141, 32);
+            btn_logout.TabIndex = 16;
+            btn_logout.Text = "Çıkış";
+            btn_logout.UseVisualStyleBackColor = false;
+            btn_logout.Click += btn_logout_Click;
+            // 
             // RandevuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 518);
+            Controls.Add(btn_logout);
+            Controls.Add(button1);
             Controls.Add(btn_randevuKayit);
             Controls.Add(grp_randevuSaati);
             Controls.Add(label6);
@@ -361,5 +390,7 @@
         private RadioButton radioButton7;
         private RadioButton radioButton1;
         private Button btn_randevuKayit;
+        private Button button1;
+        private Button btn_logout;
     }
 }

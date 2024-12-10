@@ -48,26 +48,36 @@ namespace Hospital
 
         private void btn_kayit_Click(object sender, EventArgs e)
         {
-            Hasta hasta = new Hasta()
+            Hasta hasta = db.Hastas.FirstOrDefault(i => i.TC == txt_tc.Text);
+
+
+            if (hasta != null) 
             {
-                Isim = txt_isim.Text,
-                TC = txt_tc.Text,
-                Telefon = txt_telefon.Text,
-                Kangrubu = txt_kangrubu.Text,
-                Sifre = txt_pass.Text,
-                Boy = Convert.ToInt32(nmr_boy.Value),
-                Kilo = Convert.ToInt32(nmr_kilo.Value),
-                IlceId = Convert.ToInt32(cmb_ilce.SelectedValue),
-                TakipliMi="0"
-            };
+                MessageBox.Show("Kayıtlı TC!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                
+            }
+            else
+            {
+                hasta = new Hasta()
+                {
+                    Isim = txt_isim.Text,
+                    TC = txt_tc.Text,
+                    Telefon = txt_telefon.Text,
+                    Kangrubu = txt_kangrubu.Text,
+                    Sifre = txt_pass.Text,
+                    Boy = Convert.ToInt32(nmr_boy.Value),
+                    Kilo = Convert.ToInt32(nmr_kilo.Value),
+                    IlceId = Convert.ToInt32(cmb_ilce.SelectedValue),
+                    TakipliMi = "0"
+                };
 
-            db.Hastas.Add(hasta);
-            db.SaveChanges();
+                db.Hastas.Add(hasta);
+                db.SaveChanges();
 
-            MessageBox.Show("Kayıt Başarılı");
-            this.Hide();
-            Form1 login = new Form1();
-            login.Show();
+                MessageBox.Show("Kayıt Başarılı");
+                this.Hide();
+                Form1 login = new Form1();
+                login.Show();
+            }          
         }
     }
 }

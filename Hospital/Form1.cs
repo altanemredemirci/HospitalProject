@@ -21,7 +21,7 @@ namespace Hospital
             }
 
             HastaId = model.Id;
-            RandevuForm form = new RandevuForm();
+            HastaProfil form = new HastaProfil();
             form.Show();
             this.Hide();
         }
