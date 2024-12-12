@@ -58,7 +58,6 @@ namespace Hospital
                 db.SaveChanges();
                 MessageBox.Show("Randevu İptal Edildi.");
                 RandevuLoader();
-
             }
             else
             {
@@ -109,3 +108,5 @@ namespace Hospital
         }
     }
 }
+
+

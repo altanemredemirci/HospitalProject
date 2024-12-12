@@ -36,6 +36,8 @@
             btn_giris = new Button();
             pictureBox1 = new PictureBox();
             linkLabel1 = new LinkLabel();
+            rd_hasta = new RadioButton();
+            rd_doktor = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -56,7 +58,7 @@
             txt_tc.Name = "txt_tc";
             txt_tc.Size = new Size(250, 29);
             txt_tc.TabIndex = 1;
-            txt_tc.Text = "12345678909";
+            txt_tc.Text = "99999999999";
             // 
             // txt_sifre
             // 
@@ -82,7 +84,7 @@
             // btn_giris
             // 
             btn_giris.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            btn_giris.Location = new Point(114, 140);
+            btn_giris.Location = new Point(115, 154);
             btn_giris.Name = "btn_giris";
             btn_giris.Size = new Size(249, 29);
             btn_giris.TabIndex = 4;
@@ -112,11 +114,38 @@
             linkLabel1.Text = "Kayıt Ol";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
+            // rd_hasta
+            // 
+            rd_hasta.AutoSize = true;
+            rd_hasta.Checked = true;
+            rd_hasta.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            rd_hasta.Location = new Point(141, 120);
+            rd_hasta.Name = "rd_hasta";
+            rd_hasta.Size = new Size(69, 25);
+            rd_hasta.TabIndex = 7;
+            rd_hasta.TabStop = true;
+            rd_hasta.Text = "Hasta";
+            rd_hasta.UseVisualStyleBackColor = true;
+            // 
+            // rd_doktor
+            // 
+            rd_doktor.AutoSize = true;
+            rd_doktor.BackColor = SystemColors.Control;
+            rd_doktor.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            rd_doktor.Location = new Point(258, 120);
+            rd_doktor.Name = "rd_doktor";
+            rd_doktor.Size = new Size(79, 25);
+            rd_doktor.TabIndex = 8;
+            rd_doktor.Text = "Doktor";
+            rd_doktor.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(608, 226);
+            Controls.Add(rd_doktor);
+            Controls.Add(rd_hasta);
             Controls.Add(linkLabel1);
             Controls.Add(pictureBox1);
             Controls.Add(btn_giris);
@@ -141,5 +170,7 @@
         private Button btn_giris;
         private PictureBox pictureBox1;
         private LinkLabel linkLabel1;
+        private RadioButton rd_hasta;
+        private RadioButton rd_doktor;
     }
 }

@@ -10,6 +10,8 @@ namespace Hospital
     {
         public int Id { get; set; }
         public string Isim { get; set; }
+        public string TC { get; set; } = "000000000000";
+        public string Sifre { get; set; } = "1";
         public string Brans { get; set; }
         public string Unvan { get; set; }
 
